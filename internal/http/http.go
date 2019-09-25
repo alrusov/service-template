@@ -1,6 +1,7 @@
 package http
 
 import (
+	"fmt"
 	"net/http"
 	"sync/atomic"
 
@@ -70,9 +71,9 @@ func (h *HTTP) Handler(id uint64, path string, w http.ResponseWriter, r *http.Re
 
 	switch path {
 	case "/sample-url":
-		atomic.AddInt64(&extraInfo.Counter, 1)
-		w.Write([]byte(h.cfg.Others.Option1 + " " + h.cfg.Others.Option2))
+		n := atomic.AddInt64(&extraInfo.Counter, 1)
 		w.WriteHeader(http.StatusOK)
+		w.Write([]byte(fmt.Sprintf("%s %s\nCounter = %d\n", h.cfg.Others.Option1, h.cfg.Others.Option2, n)))
 
 	default:
 		processed = false
