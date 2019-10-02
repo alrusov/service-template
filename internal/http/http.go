@@ -20,7 +20,7 @@ type HTTP struct {
 
 var (
 	extraInfo struct {
-		Counter int64 `toml:"counter"`
+		Counter int64 `json:"counter"`
 	}
 )
 
