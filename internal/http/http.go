@@ -12,7 +12,7 @@ import (
 
 //----------------------------------------------------------------------------------------------------------------------------//
 
-// HTTP is a relay for HTTP influxdb writes
+// HTTP --
 type HTTP struct {
 	cfg *config.Config
 	h   *stdhttp.HTTP
