@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"sync/atomic"
 
+	"github.com/alrusov/misc"
 	"github.com/alrusov/stdhttp"
 
 	"github.com/alrusov/service-template/internal/config"
@@ -37,7 +38,7 @@ func NewHTTP(cfg *config.Config) (*stdhttp.HTTP, error) {
 	)
 
 	stdhttp.AddEndpointsInfo(
-		map[string]string{
+		misc.StringMap{
 			"/sample-url": "Sample endpoint",
 		},
 	)
