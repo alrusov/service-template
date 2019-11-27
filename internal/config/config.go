@@ -43,11 +43,11 @@ func (h *Others) Check(cfg *Config) error {
 	var msgs []string
 
 	if h.Option1 == "" {
-		msgs = append(msgs, "Others.Option1 is empty")
+		misc.AddMessage(&msgs, "Others.Option1 is empty")
 	}
 
 	if h.Option2 == "" {
-		msgs = append(msgs, "Others.Option2 is empty")
+		misc.AddMessage(&msgs, "Others.Option2 is empty")
 	}
 
 	return misc.JoinedError(msgs)

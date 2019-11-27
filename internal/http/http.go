@@ -1,9 +1,11 @@
 package http
 
 import (
+	"fmt"
 	"net/http"
 	"sync/atomic"
 
+	"github.com/alrusov/misc"
 	"github.com/alrusov/stdhttp"
 
 	"github.com/alrusov/service-template/internal/config"
@@ -11,7 +13,7 @@ import (
 
 //----------------------------------------------------------------------------------------------------------------------------//
 
-// HTTP is a relay for HTTP influxdb writes
+// HTTP --
 type HTTP struct {
 	cfg *config.Config
 	h   *stdhttp.HTTP
@@ -19,7 +21,7 @@ type HTTP struct {
 
 var (
 	extraInfo struct {
-		Counter int64 `toml:"counter"`
+		Counter int64 `json:"counter"`
 	}
 )
 
@@ -36,7 +38,7 @@ func NewHTTP(cfg *config.Config) (*stdhttp.HTTP, error) {
 	)
 
 	stdhttp.AddEndpointsInfo(
-		map[string]string{
+		misc.StringMap{
 			"/sample-url": "Sample endpoint",
 		},
 	)
@@ -70,9 +72,9 @@ func (h *HTTP) Handler(id uint64, path string, w http.ResponseWriter, r *http.Re
 
 	switch path {
 	case "/sample-url":
-		atomic.AddInt64(&extraInfo.Counter, 1)
-		w.Write([]byte(h.cfg.Others.Option1 + " " + h.cfg.Others.Option2))
+		n := atomic.AddInt64(&extraInfo.Counter, 1)
 		w.WriteHeader(http.StatusOK)
+		w.Write([]byte(fmt.Sprintf("%s %s\nCounter = %d\n", h.cfg.Others.Option1, h.cfg.Others.Option2, n)))
 
 	default:
 		processed = false

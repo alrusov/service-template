@@ -1,3 +1,5 @@
+SHELL := /bin/bash 
+
 APP  := $(shell basename `pwd`)
 
 TS   := $(shell date -u +'%Y-%m-%d %H:%M:%S')
