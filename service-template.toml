@@ -1,4 +1,7 @@
 [common]
+name = "Service template"
+description = "Service template example"
+
 #log-local-time = true
 log-dir = "logs"
 #log-level = "INFO"
@@ -8,6 +11,9 @@ log-buffer-delay = 0
 
 mem-stats-period = 1800
 mem-stats-level = "INFO"
+
+profiler-enabled = false 
+deep-profiling = false
 
 #----------------------------------------------------------------------------------------------------------------------------#
 

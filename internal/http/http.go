@@ -13,7 +13,7 @@ import (
 
 //----------------------------------------------------------------------------------------------------------------------------//
 
-// HTTP --
+// HTTP -- listener struct
 type HTTP struct {
 	cfg *config.Config
 	h   *stdhttp.HTTP
@@ -27,7 +27,7 @@ var (
 
 //----------------------------------------------------------------------------------------------------------------------------//
 
-// NewHTTP --
+// NewHTTP -- listener initializtion
 func NewHTTP(cfg *config.Config) (*stdhttp.HTTP, error) {
 	var err error
 
@@ -66,7 +66,7 @@ func NewHTTP(cfg *config.Config) (*stdhttp.HTTP, error) {
 
 //----------------------------------------------------------------------------------------------------------------------------//
 
-// Handler --
+// Handler -- custom http endpoints handler
 func (h *HTTP) Handler(id uint64, path string, w http.ResponseWriter, r *http.Request) (processed bool) {
 	processed = true
 

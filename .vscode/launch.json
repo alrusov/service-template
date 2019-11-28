@@ -10,7 +10,7 @@
             "request": "launch",
             "mode": "auto",
             "program": "${fileDirname}",
-            "env": {},
+            "env": { "LOG_LEVEL": "TRACE4", "PORT": 1234 },
             "args": ["-config", "service-template.toml"]
         }
     ]

@@ -7,19 +7,19 @@ import (
 
 //----------------------------------------------------------------------------------------------------------------------------//
 
-// Config --
+// Config -- application config
 type Config struct {
 	Common   config.Common `toml:"common"`
 	Listener HTTP          `toml:"http"`
 	Others   Others        `toml:"others"`
 }
 
-// HTTP --
+// HTTP -- http listener config
 type HTTP struct {
 	Listener config.Listener `toml:"listener"`
 }
 
-// Others  --
+// Others -- others config
 type Others struct {
 	Option1 string `toml:"option1"`
 	Option2 string `toml:"option2"`
@@ -27,7 +27,7 @@ type Others struct {
 
 //----------------------------------------------------------------------------------------------------------------------------//
 
-// Check --
+// Check -- check http listener config
 func (h *HTTP) Check(cfg *Config) error {
 	var msgs []string
 
@@ -38,7 +38,7 @@ func (h *HTTP) Check(cfg *Config) error {
 	return misc.JoinedError(msgs)
 }
 
-// Check --
+// Check -- check others config
 func (h *Others) Check(cfg *Config) error {
 	var msgs []string
 
@@ -55,21 +55,16 @@ func (h *Others) Check(cfg *Config) error {
 
 //----------------------------------------------------------------------------------------------------------------------------//
 
-// Check --
-func (cfg *Config) Check() error {
-	var msgs []string
-
-	err := cfg.Listener.Check(cfg)
-	if err != nil {
-		misc.AddMessage(&msgs, err.Error())
-	}
-
-	err = cfg.Others.Check(cfg)
-	if err != nil {
-		misc.AddMessage(&msgs, err.Error())
-	}
-
-	return misc.JoinedError(msgs)
+// Check -- check application config
+func (cfg *Config) Check() (err error) {
+	return config.Check(
+		cfg,
+		[]interface{}{
+			&cfg.Common,
+			&cfg.Listener,
+			&cfg.Others,
+		},
+	)
 }
 
 //----------------------------------------------------------------------------------------------------------------------------//

@@ -1,29 +1,24 @@
 package main
 
 import (
-	"github.com/alrusov/config"
 	"github.com/alrusov/launcher"
 	"github.com/alrusov/panic"
 	"github.com/alrusov/stdhttp"
 
-	localconfig "github.com/alrusov/service-template/internal/config"
+	"github.com/alrusov/service-template/internal/config"
 	"github.com/alrusov/service-template/internal/http"
 )
 
 //----------------------------------------------------------------------------------------------------------------------------//
 
 type app struct {
-	cfg *localconfig.Config
+	cfg *config.Config
 }
 
 //----------------------------------------------------------------------------------------------------------------------------//
 
 func (a *app) CheckConfig() error {
 	return a.cfg.Check()
-}
-
-func (a *app) CommonConfig() *config.Common {
-	return &a.cfg.Common
 }
 
 func (a *app) NewListener() (*stdhttp.HTTP, error) {
@@ -41,7 +36,7 @@ func main() {
 	defer panic.SaveStackToLog()
 
 	app := &app{
-		cfg: &localconfig.Config{},
+		cfg: &config.Config{},
 	}
 
 	launcher.Go(app, app.cfg)
