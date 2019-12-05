@@ -12,6 +12,8 @@ log-buffer-delay = 0
 mem-stats-period = 1800
 mem-stats-level = "INFO"
 
+load-avg-period = 60
+
 profiler-enabled = false 
 deep-profiling = false
 
@@ -19,7 +21,6 @@ deep-profiling = false
 
 [http]
 listener = { bind-addr = ":{$PORT}", ssl-combined-pem = "", timeout = 5 }
-load-avg-period = 0
 
 #----------------------------------------------------------------------------------------------------------------------------#
 

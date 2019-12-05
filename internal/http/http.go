@@ -4,9 +4,8 @@ import (
 	"fmt"
 	"net/http"
 	"sync/atomic"
+	"time"
 
-	"github.com/alrusov/loadavg"
-	"github.com/alrusov/log"
 	"github.com/alrusov/misc"
 	"github.com/alrusov/stdhttp"
 
@@ -17,16 +16,14 @@ import (
 
 // HTTP -- listener struct
 type HTTP struct {
-	cfg        *config.Config
-	h          *stdhttp.HTTP
-	laRequests *loadavg.LoadAvg
+	cfg *config.Config
+	h   *stdhttp.HTTP
 }
 
 var (
 	extraInfo struct {
-		Counter         int64   `json:"counter"`
-		RequestsTotal   int64   `json:"requestsTotal"`
-		RequestsLoadAvg float64 `json:"requestsLoadAvg"`
+		Counter    int64     `json:"counter"`
+		ServerTime time.Time `json:"server-time"`
 	}
 )
 
@@ -40,27 +37,25 @@ func NewHTTP(cfg *config.Config) (*stdhttp.HTTP, error) {
 		cfg: cfg,
 	}
 
-	la, err := loadavg.Init(cfg.Listener.LoadAvgPeriod)
+	h.h, err = stdhttp.NewListener(&cfg.Listener.Listener, h)
 	if err != nil {
-		log.Message(log.INFO, `RequestsLoadAvg: %s`, err.Error())
-	} else {
-		h.laRequests = la
+		return nil, err
 	}
 
-	stdhttp.SetExtraInfoFunc(
+	h.h.SetExtraInfoFunc(
 		func() interface{} {
-			extraInfo.RequestsLoadAvg = h.laRequests.Value()
+			extraInfo.ServerTime = misc.NowUTC()
 			return &extraInfo
 		},
 	)
 
-	stdhttp.AddEndpointsInfo(
+	h.h.AddEndpointsInfo(
 		misc.StringMap{
 			"/sample-url": "Sample endpoint",
 		},
 	)
 
-	stdhttp.SetRootItemsFunc(
+	h.h.SetRootItemsFunc(
 		func() []string {
 			return []string{
 				`<a href="/sample-url" target="sample">Sample URL</a>`,
@@ -68,11 +63,6 @@ func NewHTTP(cfg *config.Config) (*stdhttp.HTTP, error) {
 			}
 		},
 	)
-
-	h.h, err = stdhttp.NewListener(&cfg.Listener.Listener, h)
-	if err != nil {
-		return nil, err
-	}
 
 	return h.h, nil
 }
@@ -82,9 +72,6 @@ func NewHTTP(cfg *config.Config) (*stdhttp.HTTP, error) {
 // Handler -- custom http endpoints handler
 func (h *HTTP) Handler(id uint64, path string, w http.ResponseWriter, r *http.Request) (processed bool) {
 	processed = true
-
-	atomic.AddInt64(&extraInfo.RequestsTotal, 1)
-	h.laRequests.Add(1)
 
 	switch path {
 	case "/sample-url":

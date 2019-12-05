@@ -36,10 +36,6 @@ func (h *HTTP) Check(cfg *Config) error {
 		h.Listener.Timeout = config.ListenerDefaultTimeout
 	}
 
-	if h.LoadAvgPeriod <= 0 {
-		h.LoadAvgPeriod = 60
-	}
-
 	return misc.JoinedError(msgs)
 }
 
