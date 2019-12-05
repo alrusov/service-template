@@ -40,13 +40,11 @@ func NewHTTP(cfg *config.Config) (*stdhttp.HTTP, error) {
 		cfg: cfg,
 	}
 
-	if cfg.Listener.LoadAvgPeriod > 0 {
-		la, err := loadavg.Init(cfg.Listener.LoadAvgPeriod)
-		if err != nil {
-			log.Message(log.INFO, `RequestsLoadAvg: %s`, err.Error())
-		} else {
-			h.laRequests = la
-		}
+	la, err := loadavg.Init(cfg.Listener.LoadAvgPeriod)
+	if err != nil {
+		log.Message(log.INFO, `RequestsLoadAvg: %s`, err.Error())
+	} else {
+		h.laRequests = la
 	}
 
 	stdhttp.SetExtraInfoFunc(

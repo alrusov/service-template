@@ -19,7 +19,7 @@ deep-profiling = false
 
 [http]
 listener = { bind-addr = ":{$PORT}", ssl-combined-pem = "", timeout = 5 }
-load-avg-period = 60
+load-avg-period = 0
 
 #----------------------------------------------------------------------------------------------------------------------------#
 
