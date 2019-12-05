@@ -16,7 +16,8 @@ type Config struct {
 
 // HTTP -- http listener config
 type HTTP struct {
-	Listener config.Listener `toml:"listener"`
+	Listener      config.Listener `toml:"listener"`
+	LoadAvgPeriod int             `toml:"load-avg-period"`
 }
 
 // Others -- others config

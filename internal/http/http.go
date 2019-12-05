@@ -5,6 +5,8 @@ import (
 	"net/http"
 	"sync/atomic"
 
+	"github.com/alrusov/loadavg"
+	"github.com/alrusov/log"
 	"github.com/alrusov/misc"
 	"github.com/alrusov/stdhttp"
 
@@ -15,13 +17,16 @@ import (
 
 // HTTP -- listener struct
 type HTTP struct {
-	cfg *config.Config
-	h   *stdhttp.HTTP
+	cfg        *config.Config
+	h          *stdhttp.HTTP
+	laRequests *loadavg.LoadAvg
 }
 
 var (
 	extraInfo struct {
-		Counter int64 `json:"counter"`
+		Counter         int64   `json:"counter"`
+		RequestsTotal   int64   `json:"requestsTotal"`
+		RequestsLoadAvg float64 `json:"requestsLoadAvg"`
 	}
 )
 
@@ -31,8 +36,22 @@ var (
 func NewHTTP(cfg *config.Config) (*stdhttp.HTTP, error) {
 	var err error
 
+	h := &HTTP{
+		cfg: cfg,
+	}
+
+	if cfg.Listener.LoadAvgPeriod > 0 {
+		la, err := loadavg.Init(cfg.Listener.LoadAvgPeriod)
+		if err != nil {
+			log.Message(log.INFO, `RequestsLoadAvg: %s`, err.Error())
+		} else {
+			h.laRequests = la
+		}
+	}
+
 	stdhttp.SetExtraInfoFunc(
 		func() interface{} {
+			extraInfo.RequestsLoadAvg = h.laRequests.Value()
 			return &extraInfo
 		},
 	)
@@ -52,10 +71,6 @@ func NewHTTP(cfg *config.Config) (*stdhttp.HTTP, error) {
 		},
 	)
 
-	h := &HTTP{
-		cfg: cfg,
-	}
-
 	h.h, err = stdhttp.NewListener(&cfg.Listener.Listener, h)
 	if err != nil {
 		return nil, err
@@ -69,6 +84,9 @@ func NewHTTP(cfg *config.Config) (*stdhttp.HTTP, error) {
 // Handler -- custom http endpoints handler
 func (h *HTTP) Handler(id uint64, path string, w http.ResponseWriter, r *http.Request) (processed bool) {
 	processed = true
+
+	atomic.AddInt64(&extraInfo.RequestsTotal, 1)
+	h.laRequests.Add(1)
 
 	switch path {
 	case "/sample-url":
