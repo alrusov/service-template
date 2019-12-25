@@ -33,4 +33,4 @@ rem Но дата локальная, а не UTC
 go build -a --ldflags "-extldflags -static -X github.com/alrusov/misc.appVersion=%VERSION% -X github.com/alrusov/misc.buildTime=%BUILD_TIME% -X github.com/alrusov/misc.copyright=%COPYRIGHT%"
 
 set /a BUILD+=1
-echo %BUILD% >BUILD_NUMBER
+echo %BUILD%>BUILD_NUMBER
