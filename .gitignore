@@ -5,6 +5,9 @@
 *.so
 *.dylib
 
+# vi swp file
+*.swp
+
 # Test binary, build with `go test -c`
 *.test
 
@@ -17,6 +20,6 @@ _extra/
 logs/
 
 TODO
-debug
+__debug_bin
 
 *.dump

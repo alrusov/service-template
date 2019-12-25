@@ -28,7 +28,7 @@ if "%BUILD%"=="" (set BUILD=1)
 for /f %%i in ('type VERSION') do set "VERSION=%%i"
 set VERSION=%VERSION%.%BUILD%
 
-rem Но дата локальная, а не UTC
+rem Local time, not UTC ((
 
 go build -a --ldflags "-extldflags -static -X github.com/alrusov/misc.appVersion=%VERSION% -X github.com/alrusov/misc.buildTime=%BUILD_TIME% -X github.com/alrusov/misc.copyright=%COPYRIGHT%"
 

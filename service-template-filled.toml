@@ -1,13 +1,15 @@
 [common]
 name = "Service template"
-description = "Service template example"
+description = "Service example"
+class = ""
 
 #log-local-time = true
 log-dir = "logs"
-#log-level = "INFO"
 log-level = "TRACE4"
 log-buffer-size = 0
 log-buffer-delay = 0
+
+#go-max-procs = 4
 
 mem-stats-period = 1800
 mem-stats-level = "INFO"
@@ -17,10 +19,12 @@ load-avg-period = 60
 profiler-enabled = false 
 deep-profiling = false
 
+disabled-endpoints = []
+
 #----------------------------------------------------------------------------------------------------------------------------#
 
 [http]
-listener = { bind-addr = ":1234", ssl-combined-pem = "", timeout = 5 }
+listener = { bind-addr = ":1234", ssl-combined-pem = "", timeout = 5, "icon-file" = "favicon.ico" }
 
 #----------------------------------------------------------------------------------------------------------------------------#
 
