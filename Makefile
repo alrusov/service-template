@@ -5,7 +5,7 @@ APP  := $(shell basename `pwd`)
 TS   := $(shell date -u +'%Y-%m-%d %H:%M:%S')
 YEAR := $(shell date -u +'%Y')
 
-COPYRIGHT = (C)_2017-$(YEAR)_Alexey_Rusov_(rolic402@mail.ru)
+COPYRIGHT = (C)_Alexey_Rusov_(rolic402@mail.ru),_2017-$(YEAR)
 
 SPACE =
 SPACE +=
@@ -40,5 +40,5 @@ build:
 	else \
 		((n = $(BUILD_NUMBER) + 1));\
 		echo $${n} >$(BUILD_NUMBER_FILE); \
-		CGO_ENABLED=$(CGO) GOOS=linux go build -a --ldflags "$(EXTRA_LD) -X github.com/alrusov/misc.appVersion=$(VERSION) -X github.com/alrusov/misc.buildTime=$(TS) -X github.com/alrusov/misc.copyright=$(COPYRIGHT)"; \
+		CGO_ENABLED=$(CGO) GOOS=linux go build --ldflags "$(EXTRA_LD) -X github.com/alrusov/misc.appVersion=$(VERSION) -X github.com/alrusov/misc.buildTime=$(TS) -X github.com/alrusov/misc.copyright=$(COPYRIGHT)"; \
 	fi;

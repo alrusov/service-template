@@ -10,7 +10,7 @@ set CGO_ENABLED=0
 set GOOS=windows
 
 set Y=%DATE:~6,4%
-set COPYRIGHT=(C)_2017-%Y%_Alexey_Rusov_(rolic402@mail.ru)
+set COPYRIGHT=(C)_Alexey_Rusov_(rolic402@mail.ru),_2017-%Y%
 
 set H1=%TIME:~0,1%
 set H2=%TIME:~1,1%
@@ -28,9 +28,9 @@ if "%BUILD%"=="" (set BUILD=1)
 for /f %%i in ('type VERSION') do set "VERSION=%%i"
 set VERSION=%VERSION%.%BUILD%
 
-rem Local time, not UTC ((
+echo Local time is not UTC ((
 
-go build -a --ldflags "-extldflags -static -X github.com/alrusov/misc.appVersion=%VERSION% -X github.com/alrusov/misc.buildTime=%BUILD_TIME% -X github.com/alrusov/misc.copyright=%COPYRIGHT%"
+go build --ldflags "-extldflags -static -X github.com/alrusov/misc.appVersion=%VERSION% -X github.com/alrusov/misc.buildTime=%BUILD_TIME% -X github.com/alrusov/misc.copyright=%COPYRIGHT%"
 
 set /a BUILD+=1
 echo %BUILD%>BUILD_NUMBER
