@@ -32,8 +32,9 @@ type Others struct {
 func (h *HTTP) Check(cfg *Config) error {
 	var msgs []string
 
-	if h.Listener.Timeout <= 0 {
-		h.Listener.Timeout = config.ListenerDefaultTimeout
+	err := h.Listener.Check(cfg)
+	if err != nil {
+		misc.AddMessage(&msgs, err.Error())
 	}
 
 	return misc.JoinedError(msgs)
