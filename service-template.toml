@@ -25,7 +25,11 @@ disabled-endpoints = []
 #----------------------------------------------------------------------------------------------------------------------------#
 
 [http]
-listener = { bind-addr = ":{$PORT}", ssl-combined-pem = "", timeout = 5, icon-file = "favicon.ico", basic-auth-enabled = false, users = {{#include users.toml}} }
+listener = { \
+             bind-addr = ":{$PORT}", ssl-combined-pem = "", timeout = 5, icon-file = "favicon.ico", \
+             basic-auth-enabled = false, \
+             users = {{#include users.toml}} \
+           }
 
 #----------------------------------------------------------------------------------------------------------------------------#
 
