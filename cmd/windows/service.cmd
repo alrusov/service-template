@@ -8,7 +8,7 @@ if "%1" == "" (
 )
 
 x86_64\service-template.exe --config ..\..\..\config\service-template-filled.toml --service %1
-if %errorlevel% == 13 (
+if %errorlevel% == 109 (
   echo ****
   echo Try to run as administrator
   echo ****
