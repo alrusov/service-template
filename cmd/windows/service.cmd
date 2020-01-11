@@ -7,7 +7,7 @@ if "%1" == "" (
   exit 1
 )
 
-..\..\service-template.exe --config config\service-template-filled.toml --service %1
+x86_64\service-template.exe --config ..\..\..\config\service-template-filled.toml --service %1
 if %errorlevel% == 13 (
   echo ****
   echo Try to run as administrator

@@ -6,8 +6,9 @@ if exist vendor\github.com (
 	exit
 )
 
+set BUILD_OS=windows
+set BUILD_ARCH=x86_64
 set CGO_ENABLED=0 
-set GOOS=windows
 
 set Y=%DATE:~6,4%
 set COPYRIGHT=(C)_Alexey_Rusov_(rolic402@mail.ru),_2017-%Y%
@@ -30,7 +31,7 @@ set VERSION=%VERSION%.%BUILD%
 
 echo Local time is not UTC ((
 
-go build --ldflags "-extldflags -static -X github.com/alrusov/misc.appVersion=%VERSION% -X github.com/alrusov/misc.buildTime=%BUILD_TIME% -X github.com/alrusov/misc.copyright=%COPYRIGHT%"
+go build -o cmd\%BUILD_OS%\%BUILD_ARCH%\service-template.exe --ldflags "-extldflags -static -X github.com/alrusov/misc.appVersion=%VERSION% -X github.com/alrusov/misc.buildTime=%BUILD_TIME% -X github.com/alrusov/misc.copyright=%COPYRIGHT%"
 
 set /a BUILD+=1
 echo %BUILD% >BUILD_NUMBER

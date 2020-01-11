@@ -24,11 +24,11 @@ disabled-endpoints = []
 #----------------------------------------------------------------------------------------------------------------------------#
 
 [http]
-listener = { bind-addr = ":1234", ssl-combined-pem = "", timeout = 5, icon-file = "cmd/favicon.ico", basic-auth-enabled = false, users = {{#include config/users.toml}} }
+listener = { bind-addr = ":1234", ssl-combined-pem = "", timeout = 5, icon-file = "../../favicon.ico", basic-auth-enabled = false, users = {{#include ../../../config/users.toml}} }
 
 #----------------------------------------------------------------------------------------------------------------------------#
 
 [others]
-{#include config/include-example.toml}
+{#include ../../../config/include-example.toml}
 
 #----------------------------------------------------------------------------------------------------------------------------#

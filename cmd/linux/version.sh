@@ -1,2 +1,2 @@
 #!/bin/sh
-../../service-template --version 
+../../service-template-`arch` --version 
