@@ -29,12 +29,12 @@ listener = { \
              bind-addr = ":{$PORT}", ssl-combined-pem = "", timeout = 5, \
              icon-file = "../../favicon.ico", \
              basic-auth-enabled = false, \
-             users = {{#include ../../../config/users.toml}} \
+             users = {{#include ^users.toml}} \
            }
 
 #----------------------------------------------------------------------------------------------------------------------------#
 
 [others]
-{#include ../../../config/include-example.toml}
+{#include ^include-example.toml}
 
 #----------------------------------------------------------------------------------------------------------------------------#
