@@ -5,10 +5,10 @@ class = ""
 
 #log-local-time = true
 log-dir = "logs"
-#log-level = "INFO"
 log-level = "{$LOG_LEVEL}"
 log-buffer-size = 0
 log-buffer-delay = 0
+log-max-string-len = 10000
 
 #go-max-procs = 4
 
