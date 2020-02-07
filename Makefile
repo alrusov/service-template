@@ -1,8 +1,9 @@
 SHELL := /bin/bash 
 
-ARCH := $(shell arch)
-
 APP  := $(shell basename `pwd`)
+
+OS := linux
+ARCH := $(shell arch)
 
 TS   := $(shell date -u +'%Y-%m-%d %H:%M:%S')
 YEAR := $(shell date -u +'%Y')
@@ -42,5 +43,8 @@ build:
 	else \
 		((n = $(BUILD_NUMBER) + 1));\
 		echo $${n} >$(BUILD_NUMBER_FILE); \
-		CGO_ENABLED=$(CGO) GOOS=linux go build -o "cmd/linux/$(ARCH)/$(APP)" --ldflags "$(EXTRA_LD) -X github.com/alrusov/misc.appVersion=$(VERSION) -X github.com/alrusov/misc.buildTime=$(TS) -X github.com/alrusov/misc.copyright=$(COPYRIGHT)"; \
+		CGO_ENABLED=$(CGO) \
+                 go build -o "cmd/$(OS)/$(ARCH)/$(APP)" \
+                   --ldflags "$(EXTRA_LD) \
+                   -X github.com/alrusov/misc.appVersion=$(VERSION) -X github.com/alrusov/misc.buildTime=$(TS) -X github.com/alrusov/misc.copyright=$(COPYRIGHT)"; \
 	fi;
