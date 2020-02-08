@@ -17,7 +17,6 @@ type Config struct {
 // HTTP -- http listener config
 type HTTP struct {
 	Listener      config.Listener `toml:"listener"`
-	LoadAvgPeriod int             `toml:"load-avg-period"`
 }
 
 // Others -- others config
@@ -45,11 +44,11 @@ func (h *Others) Check(cfg *Config) error {
 	var msgs []string
 
 	if h.Option1 == "" {
-		misc.AddMessage(&msgs, "Others.Option1 is empty")
+		misc.AddMessage(&msgs, "others.option1 is empty")
 	}
 
 	if h.Option2 == "" {
-		misc.AddMessage(&msgs, "Others.Option2 is empty")
+		misc.AddMessage(&msgs, "others.option2 is empty")
 	}
 
 	return misc.JoinedError(msgs)
