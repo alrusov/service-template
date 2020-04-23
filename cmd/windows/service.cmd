@@ -7,8 +7,8 @@ if "%1" == "" (
   exit 1
 )
 
-x86_64\service-template.exe --config ..\..\..\config\service-template-filled.toml --service %1
-if %errorlevel% == 109 (
+call run.cmd --service %1
+if %errorlevel% == 211 (
   echo ****
   echo Try to run as administrator
   echo ****

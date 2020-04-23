@@ -8,6 +8,7 @@ if exist vendor\github.com (
 
 set BUILD_OS=windows
 set BUILD_ARCH=x86_64
+
 set CGO_ENABLED=0 
 set EXTRA_LD=-extldflags -static
 
