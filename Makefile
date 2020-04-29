@@ -34,6 +34,8 @@ ifneq (,$(wildcard VERSION))
 	endif
 endif
 
+TAGS := $(shell (cat TAGS | tr -d '\r' | tr '\n' ' ' | sed 's/ *$$//' | tr ' ' '_'))
+
 .DEFAULT_GOAL := build
 
 build:
@@ -46,5 +48,8 @@ build:
 		CGO_ENABLED=$(CGO) \
                  go build -o "cmd/$(OS)/$(ARCH)/$(APP)" \
                    --ldflags "$(EXTRA_LD) \
-                   -X github.com/alrusov/misc.appVersion=$(VERSION) -X github.com/alrusov/misc.buildTime=$(TS) -X github.com/alrusov/misc.copyright=$(COPYRIGHT)"; \
+                   -X github.com/alrusov/misc.appVersion=$(VERSION) \
+                   -X github.com/alrusov/misc.appTags=$(TAGS) \
+                   -X github.com/alrusov/misc.buildTime=$(TS) \
+                   -X github.com/alrusov/misc.copyright=$(COPYRIGHT)"; \
 	fi;

@@ -1,5 +1,7 @@
 @echo off
 
+setlocal enableextensions enabledelayedexpansion
+
 if exist vendor\github.com (
   echo Please delete the vendor\github.com directory
   echo See https://github.com/golang/go/issues/19000 for details
@@ -40,10 +42,17 @@ if "%BUILD%"=="" (set BUILD=1)
 for /f %%i in ('type VERSION') do set "VERSION=%%i"
 set VERSION=%VERSION%.%BUILD%
 
+set TAGS=
+if exist TAGS (
+  for /f %%i in ('type TAGS') do (
+    if not "!TAGS!"=="" set TAGS=!TAGS!_
+    set TAGS=!TAGS!%%i
+  )
+)
+
 go build ^
   -o cmd\%BUILD_OS%\%BUILD_ARCH%\service-template.exe ^
-  --ldflags ^
-  "%EXTRA_LD% -X github.com/alrusov/misc.appVersion=%VERSION% -X github.com/alrusov/misc.buildTime=%BUILD_TIME% -X github.com/alrusov/misc.copyright=%COPYRIGHT%"
+  --ldflags "%EXTRA_LD% -X github.com/alrusov/misc.appVersion=%VERSION% -X github.com/alrusov/misc.appTags=%TAGS% -X github.com/alrusov/misc.buildTime=%BUILD_TIME% -X github.com/alrusov/misc.copyright=%COPYRIGHT%"
 
 set /a BUILD+=1
 echo %BUILD% >BUILD_NUMBER
