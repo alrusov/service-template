@@ -1,5 +1,5 @@
 # Binaries for programs and plugins
-#*.exe
+*.exe
 *.exe~
 *.dll
 *.so
@@ -23,3 +23,5 @@ TODO
 __debug_bin
 
 *.dump
+
+service-template

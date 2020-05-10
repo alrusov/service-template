@@ -33,7 +33,7 @@ func (h *HTTP) Check(cfg *Config) error {
 
 	err := h.Listener.Check(cfg)
 	if err != nil {
-		misc.AddMessage(&msgs, err.Error())
+		misc.AddMessage(&msgs, "%s", err.Error())
 	}
 
 	return misc.JoinedError(msgs)

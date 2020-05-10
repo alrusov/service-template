@@ -1,4 +1,4 @@
 @echo off
 
-call env.cmd
-x86_64\service-template.exe --config ..\..\..\config\service-template.toml %*
+call cmd\windows\env.cmd
+%APP% --config config\%APP%.toml %*

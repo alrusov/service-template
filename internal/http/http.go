@@ -58,7 +58,8 @@ func NewHTTP(cfg *config.Config) (*stdhttp.HTTP, error) {
 	h.h.SetRootItemsFunc(
 		func() []string {
 			return []string{
-				`<a href="/sample-url" target="sample">Sample URL</a>`,
+				`<a href="/sample-url" target="sample">Sample endpoint</a>`,
+				`<a href="test.html" target="sample">File</a>`,
 				`<a href="https://google.com/" target="sample">google.com</a>`,
 			}
 		},

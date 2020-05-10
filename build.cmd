@@ -8,8 +8,7 @@ if exist vendor\github.com (
   exit
 )
 
-set BUILD_OS=windows
-set BUILD_ARCH=x86_64
+call cmd\windows\env.cmd
 
 set CGO_ENABLED=0 
 set EXTRA_LD=-extldflags -static
@@ -51,7 +50,7 @@ if exist TAGS (
 )
 
 go build ^
-  -o cmd\%BUILD_OS%\%BUILD_ARCH%\service-template.exe ^
+  -o %APP%.exe ^
   --ldflags "%EXTRA_LD% -X github.com/alrusov/misc.appVersion=%VERSION% -X github.com/alrusov/misc.appTags=%TAGS% -X github.com/alrusov/misc.buildTime=%BUILD_TIME% -X github.com/alrusov/misc.copyright=%COPYRIGHT%"
 
 set /a BUILD+=1

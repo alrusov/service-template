@@ -1,2 +1,4 @@
-#!/bin/sh
-`arch`/service-template --version 
+#!/bin/bash
+
+source cmd/linux/env.sh
+./${APP} --version 
