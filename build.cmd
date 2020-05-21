@@ -10,8 +10,10 @@ if exist vendor\github.com (
 
 call cmd\windows\env.cmd
 
-set CGO_ENABLED=0 
-set EXTRA_LD=-extldflags -static
+rem set CGO_ENABLED=0
+rem set EXTRA_LD=-extldflags -static
+set CGO_ENABLED=1
+set EXTRA_LD=
 
 for /f %%d in ('wmic path win32_utctime get /format:list ^| findstr "="') do (
   for /f "tokens=1,2 delims==" %%a in ("%%d") do (

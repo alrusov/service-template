@@ -1,4 +1,4 @@
 #!/bin/bash
 
-source cmd/linux/env.sh
+source ./env.sh
 ./${APP} --version 

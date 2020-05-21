@@ -1,1 +1,1 @@
-@service.cmd start
+@cmd\windows\service.cmd start

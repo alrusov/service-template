@@ -1,1 +1,1 @@
-@service.cmd install
+@cmd\windows\service.cmd install

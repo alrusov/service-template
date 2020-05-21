@@ -5,6 +5,7 @@ After=network.target
 [Service]
 User=somebody
 Group=somegroup
+EnvironmentFile=/opt/service-template/env.sh
 WorkingDirectory=/opt/service-template
 ExecStart=/opt/service-template/service-template -config service-template.toml
 Restart=on-failure

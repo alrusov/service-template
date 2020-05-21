@@ -1,1 +1,1 @@
-@service.cmd stop
+@cmd\windows\service.cmd stop
