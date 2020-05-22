@@ -1,1 +1,1 @@
-@cmd\windows\service.cmd uninstall
+@%~dp0\service.cmd uninstall

@@ -1,4 +1,4 @@
 @echo off
 
-call cmd\windows\env.cmd
+call %~dp0\env.cmd
 %APP% --version

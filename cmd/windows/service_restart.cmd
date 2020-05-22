@@ -1,1 +1,1 @@
-@cmd\windows\service.cmd restart
+@%~dp0\service.cmd restart
