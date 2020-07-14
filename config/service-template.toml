@@ -21,7 +21,7 @@ load-avg-period = 60
 profiler-enabled = false 
 deep-profiling = false
 
-disabled-endpoints = []
+use-std-json = false
 
 min-size-for-gzip = 256
 
@@ -30,9 +30,13 @@ min-size-for-gzip = 256
 [http]
 listener = { \
              bind-addr = ":{$PORT}", ssl-combined-pem = "", timeout = 5, \
-             root = "html/", \
+             root = "", \
              icon-file = "html/favicon.ico", \
+             disabled-endpoints = [], \
              basic-auth-enabled = false, \
+             jwt-secret = "", \
+             jwt-lifetime = 157680000, \
+             jwt-endpoints = [], \
              users = {{#include ^users.toml}} \
            }
 
