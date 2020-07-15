@@ -16,7 +16,7 @@ type Config struct {
 
 // HTTP -- http listener config
 type HTTP struct {
-	Listener      config.Listener `toml:"listener"`
+	Listener config.Listener `toml:"listener"`
 }
 
 // Others -- others config
@@ -29,29 +29,29 @@ type Others struct {
 
 // Check -- check http listener config
 func (h *HTTP) Check(cfg *Config) error {
-	var msgs []string
+	msgs := misc.Messages{}
 
 	err := h.Listener.Check(cfg)
 	if err != nil {
-		misc.AddMessage(&msgs, "%s", err.Error())
+		msgs.Add("%s", err.Error())
 	}
 
-	return misc.JoinedError(msgs)
+	return msgs.Error()
 }
 
 // Check -- check others config
 func (h *Others) Check(cfg *Config) error {
-	var msgs []string
+	msgs := misc.Messages{}
 
 	if h.Option1 == "" {
-		misc.AddMessage(&msgs, "others.option1 is empty")
+		msgs.Add("others.option1 is empty")
 	}
 
 	if h.Option2 == "" {
-		misc.AddMessage(&msgs, "others.option2 is empty")
+		msgs.Add("others.option2 is empty")
 	}
 
-	return misc.JoinedError(msgs)
+	return msgs.Error()
 }
 
 //----------------------------------------------------------------------------------------------------------------------------//
