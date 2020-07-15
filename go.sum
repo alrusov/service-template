@@ -1,8 +1,8 @@
 github.com/alrusov/config v0.1.14/go.mod h1:R3YVLsht8CL1FBEibgfBmFbUkq+M/Qpc6v5Rbp7Xo2o=
 github.com/alrusov/config v0.1.16/go.mod h1:cZuNzvtotOjhh8n3QiZ5poMO/8N5fUAu+GP2V3fuwp8=
 github.com/alrusov/config v0.1.18/go.mod h1:4HqYLuqee75HFhoO7lO5BqDrd3EXFiXFWxYENKXqpJ0=
-github.com/alrusov/config v0.1.19 h1:4Brjc/lv0hJ+HEWdp6uHJKc20wzIiUZXK8csOZ4vjvE=
-github.com/alrusov/config v0.1.19/go.mod h1:7EwBtkMK3vpfK9B13zxQv4pMFRdMjJBsYU0f5OtEhks=
+github.com/alrusov/config v0.1.20 h1:8OzKIF6jbMyI7O0CjiRLhZjdgGx3yFsUWRsZ+GtvMUE=
+github.com/alrusov/config v0.1.20/go.mod h1:aA4nNbe/HoKkItwNdgd/w7GgXX8MlJsUYHCRjKM14gI=
 github.com/alrusov/jsonw v0.1.0 h1:A4Ymili5ieu7pvtK+s52Ng75qCM6K/Z5h5j9twYyjlk=
 github.com/alrusov/jsonw v0.1.0/go.mod h1:azE1xRu6TOXoMgG42/I/ZMhzfFb5FkUziUlZ4KR4rCs=
 github.com/alrusov/launcher v0.1.29 h1:Hop+ueR6p+Z1gg6VIjecKgxe4Es/eRLmmay80v7mtl0=
@@ -14,8 +14,8 @@ github.com/alrusov/log v0.1.22/go.mod h1:Y5xw6PGGpj56+JqMMe5ta/3fThm25tpZI/MSnrl
 github.com/alrusov/misc v0.1.18/go.mod h1:ylFoP0hgLCkK2QfVE4pHRSQW2rQ+sPd55h3GPeI+Nf8=
 github.com/alrusov/misc v0.1.19/go.mod h1:ylFoP0hgLCkK2QfVE4pHRSQW2rQ+sPd55h3GPeI+Nf8=
 github.com/alrusov/misc v0.1.20/go.mod h1:ylFoP0hgLCkK2QfVE4pHRSQW2rQ+sPd55h3GPeI+Nf8=
-github.com/alrusov/misc v0.1.21 h1:EFN04C8U0FHA9Frg5rxrrLk/Tg/9bG6GbRXrYICb9AI=
-github.com/alrusov/misc v0.1.21/go.mod h1:ylFoP0hgLCkK2QfVE4pHRSQW2rQ+sPd55h3GPeI+Nf8=
+github.com/alrusov/misc v0.1.22 h1:gP6eFvt+pzzr/1fxkmAatfsc2hZ69+SxlVqKGkMXQSc=
+github.com/alrusov/misc v0.1.22/go.mod h1:ylFoP0hgLCkK2QfVE4pHRSQW2rQ+sPd55h3GPeI+Nf8=
 github.com/alrusov/panic v0.1.7 h1:/liIEmic4UReT+FDzCvyVU39+o5QS5p/YRYRs1E5QWU=
 github.com/alrusov/panic v0.1.7/go.mod h1:oHGmj6Zt5DH25oWO+iKFYbuysbtz6BbodUBewO7HZNU=
 github.com/alrusov/stdhttp v0.1.39/go.mod h1:pXbaya6SpkZmBs1yZvDM2SjHPdcMXzuEWlPJoa6jJ9w=
