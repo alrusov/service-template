@@ -52,7 +52,7 @@ if exist TAGS (
 )
 
 go build ^
-  -o %APP%.exe ^
+  -o cmd\windows\%APP%.exe ^
   --ldflags "%EXTRA_LD% -X github.com/alrusov/misc.appVersion=%VERSION% -X github.com/alrusov/misc.appTags=%TAGS% -X github.com/alrusov/misc.buildTime=%BUILD_TIME% -X github.com/alrusov/misc.copyright=%COPYRIGHT%"
 
 set /a BUILD+=1

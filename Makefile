@@ -53,12 +53,12 @@ endif
 
 GO_FLAGS =
 CGO      = 0
-EXTRA_LD = -extldflags -static 
+EXTRA_LD = -extldflags -static
 
 ifeq ($(wildcard STATIC),)
 	CGO      = 1
 	EXTRA_LD =
-endif   
+endif
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------------#
 
@@ -83,7 +83,7 @@ build:
 		CGO_ENABLED=$(CGO) \
 		GOOS=$(OS) \
 		GOARCH=$(ARCH) \
-		go build -o "$(APP)" \
+		go build -o "cmd/$(OS)/$(APP)" \
 			$(GO_FLAGS) \
 			--ldflags "$(EXTRA_LD) \
 			-X github.com/alrusov/misc.appVersion=$(VERSION) \
