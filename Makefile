@@ -10,7 +10,11 @@ ifneq ($(wildcard BUILD_NUMBER),)
 	BUILD_NUMBER_FILE = BUILD_NUMBER
 endif
 
-TAGS_FILES = $(wildcard ../_BUILDS/TAGS TAGS)
+ifneq ($(wildcard WITHOUT_GLOBAL_TAGS),)
+	TAGS_FILES = $(wildcard TAGS)
+else
+	TAGS_FILES = $(wildcard ../_BUILDS/TAGS TAGS)
+endif
 
 SPACE =
 SPACE +=

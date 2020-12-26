@@ -29,7 +29,7 @@ type Others struct {
 
 // Check -- check http listener config
 func (h *HTTP) Check(cfg *Config) error {
-	msgs := misc.Messages{}
+	msgs := misc.NewMessages()
 
 	err := h.Listener.Check(cfg)
 	if err != nil {
@@ -41,7 +41,7 @@ func (h *HTTP) Check(cfg *Config) error {
 
 // Check -- check others config
 func (h *Others) Check(cfg *Config) error {
-	msgs := misc.Messages{}
+	msgs := misc.NewMessages()
 
 	if h.Option1 == "" {
 		msgs.Add("others.option1 is empty")

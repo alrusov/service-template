@@ -71,7 +71,7 @@ func NewHTTP(cfg *config.Config) (*stdhttp.HTTP, error) {
 //----------------------------------------------------------------------------------------------------------------------------//
 
 // Handler -- custom http endpoints handler
-func (h *HTTP) Handler(id uint64, path string, w http.ResponseWriter, r *http.Request) (processed bool) {
+func (h *HTTP) Handler(id uint64, prefix string, path string, w http.ResponseWriter, r *http.Request) (processed bool) {
 	processed = true
 
 	switch path {

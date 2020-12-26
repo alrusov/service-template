@@ -1,4 +1,4 @@
 #!/bin/bash
 
 source $(dirname $0)/env.sh
-./${APP} --config config/${APP}.toml
+${APP_EXEC} --config ../../config/${APP}.toml

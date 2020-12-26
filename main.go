@@ -33,7 +33,8 @@ func (a *app) NewListener() (*stdhttp.HTTP, error) {
 //----------------------------------------------------------------------------------------------------------------------------//
 
 func main() {
-	defer panic.SaveStackToLog()
+	panicID := panic.ID()
+	defer panic.SaveStackToLogEx(panicID)
 
 	app := &app{
 		cfg: &config.Config{},
