@@ -30,7 +30,8 @@ min-size-for-gzip = 256
 [http]
 listener = { \
              bind-addr = ":{$PORT}", ssl-combined-pem = "", timeout = 5, \
-             root = "", \
+             root = "html/", \
+             proxy-prefix = "/service-template/", \
              icon-file = "html/favicon.ico", \
              disabled-endpoints = [], \
              basic-auth-enabled = false, \

@@ -24,8 +24,8 @@ github.com/alrusov/panic v0.1.10/go.mod h1:1ffBuXJsSXYDgOopw7l4m60ifDAbmyzDAnq5N
 github.com/alrusov/panic v0.1.11 h1:zOqShh9fc9fszPW02myBbJFPVwG9RDVeRLCRoDYHvk0=
 github.com/alrusov/panic v0.1.11/go.mod h1:YUUjfxxxjJsTqZUrarhsr4nK4rJ6awY5rGlk8NMk6Y0=
 github.com/alrusov/stdhttp v0.1.51/go.mod h1:FsQvEUGJkcKzk6lwyyYB+Y6nZYEK7P6qwTxfYgMtrUU=
-github.com/alrusov/stdhttp v0.1.54 h1:SDsnzs7F5e1K6BvJA//QSw2svTkgO4zDmcaKc1QcnAI=
-github.com/alrusov/stdhttp v0.1.54/go.mod h1:gJni6tnk7GNAW8e5wC6nWd9rBID+nbbpYqkmjyazNVQ=
+github.com/alrusov/stdhttp v0.1.55 h1:fKrFIEPGBOh9cGjYMeolokrlhi9sDK+V71KN9LNIZmA=
+github.com/alrusov/stdhttp v0.1.55/go.mod h1:gJni6tnk7GNAW8e5wC6nWd9rBID+nbbpYqkmjyazNVQ=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/dgrijalva/jwt-go v3.2.0+incompatible h1:7qlOGliEKZXTDg6OTjfoBKDXWrumCAMpl/TFQ4/5kLM=

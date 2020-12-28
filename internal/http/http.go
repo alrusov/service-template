@@ -6,6 +6,7 @@ import (
 	"sync/atomic"
 	"time"
 
+	"github.com/alrusov/log"
 	"github.com/alrusov/misc"
 	"github.com/alrusov/stdhttp"
 
@@ -21,6 +22,8 @@ type HTTP struct {
 }
 
 var (
+	myLog = log.NewFacility("custom")
+
 	extraInfo struct {
 		Counter    int64     `json:"counter"`
 		ServerTime time.Time `json:"server-time"`
@@ -56,10 +59,10 @@ func NewHTTP(cfg *config.Config) (*stdhttp.HTTP, error) {
 	)
 
 	h.h.SetRootItemsFunc(
-		func() []string {
+		func(prefix string) []string {
 			return []string{
-				`<a href="/sample-url" target="sample">Sample endpoint</a>`,
-				`<a href="test.html" target="sample">File</a>`,
+				fmt.Sprintf(`<a href="%s/sample-url" target="sample">Sample endpoint</a>`, prefix),
+				fmt.Sprintf(`<a href="%s/test.html" target="sample">File</a>`, prefix),
 				`<a href="https://google.com/" target="sample">google.com</a>`,
 			}
 		},
@@ -73,6 +76,8 @@ func NewHTTP(cfg *config.Config) (*stdhttp.HTTP, error) {
 // Handler -- custom http endpoints handler
 func (h *HTTP) Handler(id uint64, prefix string, path string, w http.ResponseWriter, r *http.Request) (processed bool) {
 	processed = true
+
+	myLog.MessageWithSource(log.DEBUG, path, "Processing")
 
 	switch path {
 	case "/sample-url":
