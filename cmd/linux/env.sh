@@ -2,11 +2,6 @@
 
 set -a
 
-APP=service-template
+APP=$(basename $(readlink -f ../..))
 
-LOG_LEVEL=TRACE4
-PORT=1234
-
-VIEW_BROWSER=true
-
-GODEBUG=madvdontneed=1
+. ../env
