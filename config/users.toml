@@ -1,4 +1,4 @@
-# use /sha?p=<password> for encoding
+# use /tools/sha?p=<password>&salt=<user_name> for encoding
 # password pwd1
 user1 = "e656f72a41fda1e8a2da5bff609f4a88591d349494e48a49f53fdec59356fafeb72c8ac259949301866f731a57464b3fad2c1b6bacf152761bd9d56928446ead", \
 # password pwd2
