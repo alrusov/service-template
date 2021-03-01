@@ -82,8 +82,8 @@ func (h *HTTP) Handler(id uint64, prefix string, path string, w http.ResponseWri
 	switch path {
 	case "/sample-url":
 		n := atomic.AddInt64(&extraInfo.Counter, 1)
-		w.WriteHeader(http.StatusOK)
-		w.Write([]byte(fmt.Sprintf("%s %s\nCounter = %d\n", h.cfg.Others.Option1, h.cfg.Others.Option2, n)))
+		d := []byte(fmt.Sprintf("%s %s\nCounter = %d\n", h.cfg.Others.Option1, h.cfg.Others.Option2, n))
+		stdhttp.WriteReply(w, r, http.StatusOK, stdhttp.ContentTypeText, nil, d)
 
 	default:
 		processed = false
