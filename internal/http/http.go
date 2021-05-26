@@ -22,7 +22,7 @@ type HTTP struct {
 }
 
 var (
-	myLog = log.NewFacility("custom")
+	Log = log.NewFacility("my facility")
 
 	extraInfo struct {
 		Counter    int64     `json:"counter"`
@@ -77,7 +77,14 @@ func NewHTTP(cfg *config.Config) (*stdhttp.HTTP, error) {
 func (h *HTTP) Handler(id uint64, prefix string, path string, w http.ResponseWriter, r *http.Request) (processed bool) {
 	processed = true
 
-	myLog.MessageWithSource(log.DEBUG, path, "Processing")
+	Log.MessageWithSource(log.DEBUG, path, "Processing")
+
+	identity, err := h.h.GetIdentityFromContext(r)
+	if err != nil {
+		Log.Message(log.ERR, "GetIdentityFromContext error: %s", err)
+	} else if identity != nil {
+		Log.Message(log.INFO, "[%d] User identity: %#v", id, identity)
+	}
 
 	switch path {
 	case "/sample-url":
