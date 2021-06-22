@@ -79,7 +79,7 @@ func (h *HTTP) Handler(id uint64, prefix string, path string, w http.ResponseWri
 
 	Log.MessageWithSource(log.DEBUG, path, "Processing")
 
-	identity, err := h.h.GetIdentityFromContext(r)
+	identity, err := stdhttp.GetIdentityFromRequestContext(r)
 	if err != nil {
 		Log.Message(log.ERR, "GetIdentityFromContext error: %s", err)
 	} else if identity != nil {

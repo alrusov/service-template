@@ -1,7 +1,8 @@
 github.com/alrusov/bufpool v0.1.7 h1:zmmEVPKZ5BRxSE2+nkYfNaLXiFezQ42s4gnSZHjbfCU=
 github.com/alrusov/bufpool v0.1.7/go.mod h1:kHFGm44zeETGWA2h4kUMd0FMkNMiotFERO4AMKPGwwk=
-github.com/alrusov/config v0.1.40 h1:feM6kkaoWd6ByJ3CHoUrn4wEUlscnFNFXfkHl/BqEH8=
 github.com/alrusov/config v0.1.40/go.mod h1:DyE/dSF5RkBYiJCF/9PrSQxM3y6swSKhliRI6K55JMc=
+github.com/alrusov/config v0.1.41 h1:+GP8W73BD0DdRdlqhRKl4swpdtqtjunne27egL02wx0=
+github.com/alrusov/config v0.1.41/go.mod h1:eX4yrGZb/zcsa1GpVggN83kZpyzAer6dJHkO7liUpnE=
 github.com/alrusov/jsonw v0.1.1 h1:fApyxCLUXpMxCLGw7S4vCBmfXWALuX+eU4lGxmxWXMs=
 github.com/alrusov/jsonw v0.1.1/go.mod h1:hnRfKPT1dIS8+ez4H0QJbXSwvWdVJYq835ZS3LQGLfI=
 github.com/alrusov/launcher v0.1.40 h1:dOvVTt5gDRWrfZQhejW3aWBtQofPVs7dptK4vIUYTtc=
@@ -20,8 +21,8 @@ github.com/alrusov/panic v0.1.13/go.mod h1:zwS3WCJcw2e8x/A0d1UR7GQeZsoQ+OQ7Cf5x5
 github.com/alrusov/panic v0.1.14 h1:h3DU1GVIp1ab3PPMAOweyWMPILWyLR8EZnjPIx9SUfo=
 github.com/alrusov/panic v0.1.14/go.mod h1:ALoONDJK6XEbMvLnsenCkVSF1LXQ/gjU7uXi0JX7bak=
 github.com/alrusov/stdhttp v0.1.86/go.mod h1:HyL3z5FaOcGvNfCgejpf44dwTdeMm6S36Dg74hSx74A=
-github.com/alrusov/stdhttp v0.1.87 h1:+YbHl65uVy5PM4Kl/VlyxUasTmJo7ZLvQS5wwrHCBuc=
-github.com/alrusov/stdhttp v0.1.87/go.mod h1:Zf0zHn19WkZoLgd/n4ZX9zo9xLsBse5t7DiYgIp0Wxc=
+github.com/alrusov/stdhttp v0.1.88 h1:lMP6g7JrMTOP0audfF+XIRo5vrXSXDVLMG83UbwPnNk=
+github.com/alrusov/stdhttp v0.1.88/go.mod h1:gP19M9yWjw8R2Q4EmPBmpkcLoKVZFvbCW6F9wD4NgCE=
 github.com/alrusov/winservice v0.1.9 h1:cHNfslCNbNYneezFZQfUjqNbUpIWa4gmwL1wv3qeyVM=
 github.com/alrusov/winservice v0.1.9/go.mod h1:gTXMCHnIo6K0vxmBEWW2OcuVc3MfF3gFSq1M8fd9rkA=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
@@ -54,12 +55,13 @@ github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+
 github.com/stretchr/testify v1.3.0 h1:TivCn/peBQ7UY8ooIcPgZFpTNSz0Q2U6UrFlUfqbe0Q=
 github.com/stretchr/testify v1.3.0/go.mod h1:M5WIy9Dh21IEIfnGCwXGc5bZfKNJtfHm1UVUgZn+9EI=
 golang.org/x/crypto v0.0.0-20210505212654-3497b51f5e64/go.mod h1:P+XmwS30IXTQdn5tA2iutPOUgjI07+tq3H3K9MVA1s8=
-golang.org/x/crypto v0.0.0-20210513164829-c07d793c2f9a h1:kr2P4QFmQr29mSLA43kwrOcgcReGTfbE9N577tCTuBc=
-golang.org/x/crypto v0.0.0-20210513164829-c07d793c2f9a/go.mod h1:P+XmwS30IXTQdn5tA2iutPOUgjI07+tq3H3K9MVA1s8=
+golang.org/x/crypto v0.0.0-20210616213533-5ff15b29337e h1:gsTQYXdTw2Gq7RBsWvlQ91b+aEQ6bXFUngBGuR8sPpI=
+golang.org/x/crypto v0.0.0-20210616213533-5ff15b29337e/go.mod h1:GvvjBRRGRdwPK5ydBHafDWAxML/pGHZbMvKqRZ5+Abc=
 golang.org/x/net v0.0.0-20210226172049-e18ecbb05110/go.mod h1:m0MpNAwzfU5UDzcl9v0D8zg8gWTRqZa9RBIspLL5mdg=
 golang.org/x/sys v0.0.0-20201015000850-e3ed0017c211/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
-golang.org/x/sys v0.0.0-20201119102817-f84b799fce68 h1:nxC68pudNYkKU6jWhgrqdreuFiOQWj1Fs7T3VrH4Pjw=
 golang.org/x/sys v0.0.0-20201119102817-f84b799fce68/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
+golang.org/x/sys v0.0.0-20210615035016-665e8c7367d1 h1:SrN+KX8Art/Sf4HNj6Zcz06G7VEz+7w9tdXTPOZ7+l4=
+golang.org/x/sys v0.0.0-20210615035016-665e8c7367d1/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/term v0.0.0-20201126162022-7de9c90e9dd1/go.mod h1:bj7SfCRtBDWHUb9snDiAeCFNEtKQo2Wmx5Cou7ajbmo=
 golang.org/x/text v0.3.3/go.mod h1:5Zoc/QRtKVWzQhOtBMvqHzDpF6irO9z98xDceosuGiQ=
 golang.org/x/tools v0.0.0-20180917221912-90fa682c2a6e/go.mod h1:n7NCudcB/nEzxVGmLbDWY5pfWTLqBcC2KZ6jyYvM4mQ=
