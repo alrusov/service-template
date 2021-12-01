@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/alrusov/config v0.1.43
-	github.com/alrusov/launcher v0.1.48
+	github.com/alrusov/launcher v0.1.49
 	github.com/alrusov/log v0.1.30
 	github.com/alrusov/misc v0.1.49
 	github.com/alrusov/panic v0.1.14
@@ -15,7 +15,7 @@ require (
 	github.com/alrusov/auth v0.1.0 // indirect
 	github.com/alrusov/auth-basic v0.1.0 // indirect
 	github.com/alrusov/auth-jwt v0.1.0 // indirect
-	github.com/alrusov/auth-keycloak v0.1.1 // indirect
+	github.com/alrusov/auth-keycloak v0.1.2 // indirect
 	github.com/alrusov/auth-krb5 v0.1.0 // indirect
 	github.com/alrusov/bufpool v0.1.7 // indirect
 	github.com/alrusov/jsonw v0.1.1 // indirect
