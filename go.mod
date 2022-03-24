@@ -1,24 +1,23 @@
 module github.com/alrusov/service-template
 
-go 1.17
+go 1.18
 
 require (
-	github.com/alrusov/config v0.1.44
-	github.com/alrusov/launcher v0.1.51
+	github.com/alrusov/config v0.1.46
+	github.com/alrusov/launcher v0.1.55
 	github.com/alrusov/log v0.1.31
-	github.com/alrusov/misc v0.1.49
+	github.com/alrusov/misc v0.1.54
 	github.com/alrusov/panic v0.1.14
-	github.com/alrusov/stdhttp v0.1.99
+	github.com/alrusov/stdhttp v0.1.102
 )
 
 require (
-	github.com/alrusov/auth v0.1.0 // indirect
-	github.com/alrusov/auth-basic v0.1.0 // indirect
-	github.com/alrusov/auth-jwt v0.1.2 // indirect
-	github.com/alrusov/auth-keycloak v0.1.3 // indirect
-	github.com/alrusov/auth-krb5 v0.1.0 // indirect
-	github.com/alrusov/auth-url v0.1.0 // indirect
-	github.com/alrusov/bufpool v0.1.7 // indirect
+	github.com/alrusov/auth v0.1.1 // indirect
+	github.com/alrusov/auth-basic v0.1.1 // indirect
+	github.com/alrusov/auth-jwt v0.1.5 // indirect
+	github.com/alrusov/auth-keycloak v0.1.5 // indirect
+	github.com/alrusov/auth-krb5 v0.1.2 // indirect
+	github.com/alrusov/auth-url v0.1.1 // indirect
 	github.com/alrusov/jsonw v0.1.1 // indirect
 	github.com/alrusov/loadavg v0.1.4 // indirect
 	github.com/alrusov/winservice v0.1.9 // indirect
@@ -35,7 +34,7 @@ require (
 	github.com/naoina/go-stringutil v0.1.0 // indirect
 	github.com/naoina/toml v0.1.1 // indirect
 	github.com/pquerna/cachecontrol v0.1.0 // indirect
-	golang.org/x/crypto v0.0.0-20211117183948-ae814b36b871 // indirect
+	golang.org/x/crypto v0.0.0-20220112180741-5e0467b6c7ce // indirect
 	golang.org/x/net v0.0.0-20211112202133-69e39bad7dc2 // indirect
 	golang.org/x/oauth2 v0.0.0-20211104180415-d3ed0bb246c8 // indirect
 	golang.org/x/sys v0.0.0-20210615035016-665e8c7367d1 // indirect
